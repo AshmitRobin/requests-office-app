@@ -13,6 +13,7 @@ const pool = require('./db');
 const { auth, allowRoles } = require('./middleware');
 
 const app = express();
+app.set('trust proxy', 1);
 const PORT = process.env.PORT || 5000;
 const uploadDir = path.resolve(__dirname, process.env.UPLOAD_DIR || 'uploads');
 fs.mkdirSync(uploadDir, { recursive: true });
